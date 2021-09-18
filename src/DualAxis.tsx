@@ -36,8 +36,8 @@ export const DataTableDualAxis = (params: DualAxisParams): JSX.Element => {
     blankCell,
     ...params.config.fields.x.map((item) => {
       return {
-        displayText: item.value,
-        class: `x-axis-header ${item.value}`
+        displayText: item.displayValue,
+        class: `x-axis-header ${item.displayValue}`
       };
     })
   ];
@@ -45,7 +45,7 @@ export const DataTableDualAxis = (params: DualAxisParams): JSX.Element => {
     xAxisHeaderRow,
     ...params.config.fields.y.map((yItem) => {
       return [
-        { displayText: yItem.value,
+        { displayText: yItem.displayValue,
           class: `y-axis-header ${yItem.columnName}` },
         ...params.config.fields.x.map((xItem) => {
           return {

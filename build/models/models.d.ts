@@ -28,7 +28,8 @@ export interface DataTableParams {
 }
 export interface AxisItem {
     columnName: string;
-    value: string;
+    displayValue: string;
+    rawValue: string | Date | number;
 }
 export interface DualAxisConfig {
     parentClass: string;

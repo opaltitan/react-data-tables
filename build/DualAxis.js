@@ -36,15 +36,15 @@ export var DataTableDualAxis = function (params) {
         blankCell
     ], params.config.fields.x.map(function (item) {
         return {
-            displayText: item.value,
-            class: "x-axis-header " + item.value
+            displayText: item.displayValue,
+            class: "x-axis-header " + item.displayValue
         };
     }));
     var displayData = __spreadArray([
         xAxisHeaderRow
     ], params.config.fields.y.map(function (yItem) {
         return __spreadArray([
-            { displayText: yItem.value,
+            { displayText: yItem.displayValue,
                 class: "y-axis-header " + yItem.columnName }
         ], params.config.fields.x.map(function (xItem) {
             return {
