@@ -11,7 +11,7 @@ interface DataTableFieldBase {
     columnName: string;
 }
 export interface DataTableFieldText extends DataTableFieldBase {
-    dataFormat: DataFormatter.FORMAT_TYPE;
+    dataFormat: DataFormatter.DISPLAY_FORMAT_TYPE;
 }
 export interface DataTableFieldButton extends DataTableFieldBase {
     buttonData: Buttons.Params;
@@ -24,6 +24,24 @@ export interface DataTableConfig {
 export interface DataTableParams {
     data: Array<any>;
     config: DataTableConfig;
+    expanderBody?: (params: any) => JSX.Element;
+}
+export interface AxisItem {
+    columnName: string;
+    value: string;
+}
+export interface DualAxisConfig {
+    parentClass: string;
+    fields: {
+        x: Array<AxisItem>;
+        y: Array<AxisItem>;
+        dataDeriver: (x: AxisItem, y: AxisItem, data: Array<any>) => string | Date | number;
+        dataFormat: DataFormatter.DISPLAY_FORMAT_TYPE;
+    };
+}
+export interface DualAxisParams {
+    data: Array<any>;
+    config: DualAxisConfig;
     expanderBody?: (params: any) => JSX.Element;
 }
 export {};
