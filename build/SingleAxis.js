@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { cloneDeep } from 'lodash';
+import { cloneDeep, get } from 'lodash';
 import { Buttons } from 'simple-react-buttons';
 import { Expander } from 'simple-react-expander';
 import { DATA_TABLE_FIELD_TYPE } from './models/models';
@@ -41,7 +41,7 @@ var DataTableSingleAxisDataRow = function (_a) {
                 return (_jsx(DataTableButtonCell, { params: param, data: data }, i));
             default:
                 var castParam = param;
-                return (_jsx(DataTableStandardCell, { columnName: castParam.columnName, text: DataFormatter.format(data[castParam.columnName], castParam.dataFormat) }, i));
+                return (_jsx(DataTableStandardCell, { columnName: castParam.columnName, text: DataFormatter.format(get(data, castParam.columnName), castParam.dataFormat) }, i));
         }
     });
     return (_jsx("div", __assign({ className: "data-table-row data-table-data-row" }, { children: columns }), void 0));

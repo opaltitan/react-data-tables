@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash';
+import { cloneDeep, get } from 'lodash';
 import { Buttons } from 'simple-react-buttons';
 import { Expander } from 'simple-react-expander';
 import {
@@ -62,7 +62,7 @@ const DataTableSingleAxisDataRow = (
           return (
             <DataTableStandardCell key={i}
                                    columnName={castParam.columnName}
-                                   text={DataFormatter.format(data[castParam.columnName], castParam.dataFormat)} />
+                                   text={DataFormatter.format(get(data, castParam.columnName), castParam.dataFormat)} />
           );
       }
     }
